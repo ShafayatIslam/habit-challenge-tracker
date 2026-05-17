@@ -1,3 +1,48 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #fafafa;
+    color: #111827;
+    font-size: 16px;
+    line-height: 1.5;
+    padding-top: 80px; /* account for fixed navbar */
+}
+
+.text-muted { color: #6b7280; }
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    height: 80px;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.icon-purple { color: #4f46e5; font-size: 1.6rem; }
+
 .nav-links {
     display: flex;
     gap: 25px;
@@ -31,6 +76,8 @@
     align-items: center;
     gap: 8px;
 }
+
+
 .main-container {
     max-width: 1200px;
     margin: 40px auto;
@@ -222,13 +269,14 @@ button {
     color: #111827;
 }
 
-
+/* Card Buttons Area */
 .card-btn {
     display: flex;
     align-items: center;
     gap: 16px;
     margin-top: auto;
 }
+
 /* Complete & Completed Buttons */
 .complete, .completed {
     flex: 1;
