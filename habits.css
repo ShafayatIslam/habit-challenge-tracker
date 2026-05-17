@@ -1,0 +1,33 @@
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #6b7280;
+    font-weight: 500;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.2s;
+}
+
+.nav-links a:hover { color: #4f46e5; }
+
+.nav-links a.active {
+    color: #4f46e5;
+    background-color: #eef2ff;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.nav-logout a {
+    text-decoration: none;
+    color: #6b7280;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
