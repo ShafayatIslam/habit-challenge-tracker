@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Challenge Tracker </title>
+    <link rel="stylesheet" href="habits.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-trophy icon-purple"></i>
+            <span>Habit Challenge</span>
+        </div>
+        <div class="nav-links">
+            <a href="#"><i class="fa-solid fa-border-all"></i> Dashboard</a>
+            <a href="#" class="active"><i class="fa-regular fa-square-check"></i> Habits</a>
+            <a href="#"><i class="fa-solid fa-medal"></i> Challenges</a>
+            <a href="#"><i class="fa-solid fa-chart-simple"></i> Leaderboard</a>
+            <a href="#"><i class="fa-regular fa-calendar"></i> Calendar</a>
+            <a href="#"><i class="fa-regular fa-user"></i> Profile</a>
+            <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+        </div>
+        <div class="nav-logout">
+            <a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        
+        <header class="page-header">
+            <div>
+                <h1>Habit Management</h1>
+                <p class="text-muted">Track and manage your daily habits</p>
+            </div>
+            <button class="add-btn" id="btn-open-add-modal"><i class="fa-solid fa-plus"></i> Add Habit</button>
+        </header>
+
+        <div class="filters" id="category-filters">
+            <button type="button" class="filter-btn active" data-category="All">All</button>
+            <button type="button" class="filter-btn" data-category="Wellness">Wellness</button>
+            <button type="button" class="filter-btn" data-category="Fitness">Fitness</button>
+            <button type="button" class="filter-btn" data-category="Learning">Learning</button>
+            <button type="button" class="filter-btn" data-category="Health">Health</button>
+        </div>
+
+        <div id="habitlist" class="habit-grid">
+            </div>
+
+    </main>
+
+    <div id="form" class="hidden overlay">
+        <div class="modal-card">
+            <h2>Add New Habit</h2>
+            <form id="add-habit-form">
+                <div class="form-group">
+                    <label for="name">Habit Name</label>
+                    <input type="text" id="name" placeholder="e.g., Morning Meditation" required>
+                </div>
+                <div class="form-group">
+                    <label for="desc">Description</label>
+                    <input type="text" id="desc" placeholder="e.g., 10 minutes of mindfulness" required>
+                </div>
+                <div class="form-group-row">
+                    <div class="form-group w-50">
+                        <label for="frequency">Frequency</label>
+                        <select id="frequency">
+                            <option value="Daily">Daily</option>
+                            <option value="Weekly">Weekly</option>
+                        </select>
+                    </div>
+                    <div class="form-group w-50">
+                        <label for="type">Type</label>
+                        <select id="type">
+                            <option value="Wellness">Wellness</option>
+                            <option value="Fitness">Fitness</option>
+                            <option value="Learning">Learning</option>
+                            <option value="Health">Health</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="submit" class="btn-submit">Save Habit</button>
+                    <button type="button" class="btn-cancel" id="btn-close-add-modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="edit-form" class="hidden overlay">
+        <div class="modal-card">
+            <h2>Edit Habit</h2>
+            <form id="edit-habit-form">
+                <div class="form-group">
+                    <label for="edit-name">Habit Name</label>
+                    <input type="text" id="edit-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-desc">Description</label>
+                    <input type="text" id="edit-desc" required>
+                </div>
+                <div class="form-group-row">
+                    <div class="form-group w-50">
+                        <label for="edit-frequency">Frequency</label>
+                        <select id="edit-frequency">
+                            <option value="Daily">Daily</option>
+                            <option value="Weekly">Weekly</option>
+                        </select>
+                    </div>
+                    <div class="form-group w-50">
+                        <label for="edit-type">Type</label>
+                        <select id="edit-type">
+                            <option value="Wellness">Wellness</option>
+                            <option value="Fitness">Fitness</option>
+                            <option value="Learning">Learning</option>
+                            <option value="Health">Health</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="submit" class="btn-submit">Update Habit</button>
+                    <button type="button" class="btn-cancel" id="btn-close-edit-modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="overlay" class="hidden overlay">
+        <div class="modal-card text-center">
+            <i class="fa-solid fa-triangle-exclamation warning-icon"></i>
+            <h2>Delete Habit?</h2>
+            <p class="text-muted">Are you sure you want to delete this habit? This action cannot be undone.</p>
+            <div class="modal-actions justify-center mt-20">
+                <button type="button" class="btn-cancel no-btn" id="btn-cancel-delete">Cancel</button>
+                <button type="button" class="btn-delete yes-btn" id="btn-confirm-delete">Yes, Delete</button>
+            </div>
+        </div>
+    </div>
+<!-- for backend -->
+    <!-- <script src="backend.js"></script> -->
+     <!-- for initial -->
+    <script src="habits.js"></script>
+    
+</body>
+</html>
