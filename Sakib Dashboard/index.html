@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Habit Challenge</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <i class="fa-solid fa-trophy icon-purple"></i>
+        <span>Habit Challenge</span>
+      </div>
+      <div class="nav-links">
+        <a href="index.html" class="active"
+          ><i class="fa-solid fa-border-all"></i> Dashboard</a
+        >
+        <a href="habits.html"><i class="fa-regular fa-square-check"></i> Habits</a>
+        <a href="#"><i class="fa-regular fa-calendar-check"></i> Tasks</a>
+        <a href="#"><i class="fa-solid fa-medal"></i> Challenges</a>
+        <a href="#"><i class="fa-solid fa-chart-simple"></i> Leaderboard</a>
+        <a href="#"><i class="fa-regular fa-calendar"></i> Calendar</a>
+        <a href="#"><i class="fa-regular fa-user"></i> Profile</a>
+        <a href="settigns.html"><i class="fa-solid fa-gear"></i> Settings</a>
+      </div>
+      <div class="nav-logout">
+        <a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+      </div>
+    </nav>
+
+    <div class="app-shell">
+
+      <main class="page-content">
+        <section class="page-header">
+          <div>
+            <h1>Welcome back! Here’s your overview.</h1>
+          </div>
+        </section>
+
+        <section class="summary-grid">
+          <article class="summary-card">
+            <span class="summary-label">Current Streak</span>
+            <strong>12 days</strong>
+            <span class="summary-icon">🔥</span>
+          </article>
+          <article class="summary-card">
+            <span class="summary-label">Rating</span>
+            <strong>2,450</strong>
+            <span class="summary-icon">⭐</span>
+          </article>
+          <article class="summary-card">
+            <span class="summary-label">Active Habits</span>
+            <strong>8</strong>
+            <span class="summary-icon">✅</span>
+          </article>
+          <article class="summary-card">
+            <span class="summary-label">Challenges</span>
+            <strong>3</strong>
+            <span class="summary-icon">🏆</span>
+          </article>
+        </section>
+
+        <section class="content-grid">
+          <article class="panel" id="habits">
+            <div class="panel-header">
+              <h2>Active Habits</h2>
+              <a href="#">View all</a>
+            </div>
+            <div class="item-list">
+              <div class="item done">
+                <span class="item-icon">✔️</span>
+                <div>
+                  <p class="item-title done-text">Morning Meditation</p>
+                  <p class="item-meta">12 day streak</p>
+                </div>
+              </div>
+              <div class="item done">
+                <span class="item-icon">✔️</span>
+                <div>
+                  <p class="item-title done-text">Exercise 30 min</p>
+                  <p class="item-meta">8 day streak</p>
+                </div>
+              </div>
+              <div class="item">
+                <span class="item-icon blocked">■</span>
+                <div>
+                  <p class="item-title">Read 20 pages</p>
+                  <p class="item-meta">15 day streak</p>
+                </div>
+              </div>
+              <div class="item">
+                <span class="item-icon blocked">■</span>
+                <div>
+                  <p class="item-title">Drink 8 glasses water</p>
+                  <p class="item-meta">10 day streak</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel" id="tasks">
+            <div class="panel-header">
+              <h2>Today’s Tasks</h2>
+              <a href="#">View all</a>
+            </div>
+            <div class="item-list">
+              <div class="item done">
+                <span class="item-icon">✔️</span>
+                <div>
+                  <p class="item-title done-text">Complete morning workout</p>
+                  <p class="item-meta">7:00 AM</p>
+                </div>
+              </div>
+              <div class="item done">
+                <span class="item-icon">✔️</span>
+                <div>
+                  <p class="item-title done-text">
+                    Review project documentation
+                  </p>
+                  <p class="item-meta">10:00 AM</p>
+                </div>
+              </div>
+              <div class="item">
+                <span class="item-icon blocked">■</span>
+                <div>
+                  <p class="item-title">Team meeting</p>
+                  <p class="item-meta">2:00 PM</p>
+                </div>
+              </div>
+              <div class="item">
+                <span class="item-icon blocked">■</span>
+                <div>
+                  <p class="item-title">Evening meditation</p>
+                  <p class="item-meta">7:00 PM</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="panel wide-panel " id="challenges">
+          <div class="panel-header">
+            <h2>Ongoing Challenges</h2>
+            <a href="#">View all</a>
+          </div>
+          <div class="challenge-grid">
+            <div class="challenge-card">
+              <div class="challenge-title">
+                <span class="challenge-icon">🏆</span>
+                <div>
+                  <strong>30-Day Fitness Challenge</strong>
+                  <p>24 participants</p>
+                </div>
+              </div>
+              <div class="challenge-progress">
+                <span>Progress</span>
+                <strong>40%</strong>
+              </div>
+              <div class="progress-bar"><div style="width: 40%"></div></div>
+            </div>
+            <div class="challenge-card">
+              <div class="challenge-title">
+                <span class="challenge-icon">🏆</span>
+                <div>
+                  <strong>Read Every Day</strong>
+                  <p>18 participants</p>
+                </div>
+              </div>
+              <div class="challenge-progress">
+                <span>Progress</span>
+                <strong>65%</strong>
+              </div>
+              <div class="progress-bar"><div style="width: 65%"></div></div>
+            </div>
+            <div class="challenge-card">
+              <div class="challenge-title">
+                <span class="challenge-icon">🏆</span>
+                <div>
+                  <strong>Mindfulness Journey</strong>
+                  <p>32 participants</p>
+                </div>
+              </div>
+              <div class="challenge-progress ">
+                <span>Progress</span>
+                <strong>30%</strong>
+              </div>
+              <div class="progress-bar"><div style="width: 30%"></div></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
