@@ -6,7 +6,9 @@ import com.project.habit_management.model.Habit;
 import com.project.habit_management.repository.HabitRepo;
 import com.project.habit_management.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -32,6 +34,26 @@ public class HabitService {
         habit.setUser(userRepo.findById(hr.getUserId()).orElse(null)); //UserRepo is used here to find user.
 
         habitRepo.save(habit);
+    }
+
+    public void updateHabit(Integer id, HabitRequest request){
+        Habit habit = habitRepo.findById(id)
+                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"Habit Not Found!!"));
+
+        habit.setName(request.getName());
+        habit.setDescription(request.getDescription());
+        habit.setFrequency(request.getFrequency());
+        habit.setType(request.getType());
+
+        habitRepo.save(habit);
+    }
+
+    public void deleteHabit(Integer id){
+        if(!habitRepo.existsById(id)){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Habit Not Found!!");
+        }
+
+        habitRepo.deleteById(id);
     }
 
     public boolean canComplete(int id){
