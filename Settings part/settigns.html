@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Habit Challenge Tracker</title>
+    <link rel="stylesheet" href="settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-trophy icon-purple"></i>
+            <span>Habit Challenge</span>
+        </div>
+        <div class="nav-links">
+            <a href="#"><i class="fa-solid fa-border-all"></i> Dashboard</a>
+            <a href="habits.html"><i class="fa-regular fa-square-check"></i> Habits</a>
+            <a href="#"><i class="fa-regular fa-calendar-check"></i> Tasks</a>
+            <a href="#"><i class="fa-solid fa-medal"></i> Challenges</a>
+            <a href="#"><i class="fa-solid fa-chart-simple"></i> Leaderboard</a>
+            <a href="#"><i class="fa-regular fa-calendar"></i> Calendar</a>
+            <a href="#"><i class="fa-regular fa-user"></i> Profile</a>
+            <a href="settigns.html" class="active"><i class="fa-solid fa-gear"></i> Settings</a>
+        </div>
+        <div class="nav-logout">
+            <a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        
+        <header class="page-header">
+            <div>
+                <h1>Settings</h1>
+                <p class="text-muted">Manage your account preferences</p>
+            </div>
+        </header>
+
+        <div class="settings-wrapper">
+            
+            <section class="settings-card">
+                <div class="card-header">
+                    <i class="fa-solid fa-lock"></i>
+                    <h2>Change Password</h2>
+                </div>
+                <form id="password-form">
+                    <div class="form-group">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" placeholder="••••••••" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" placeholder="••••••••" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm New Password</label>
+                        <input type="password" id="confirm-password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn-primary-solid">Update Password</button>
+                </form>
+            </section>
+
+            <section class="settings-card">
+                <div class="card-header">
+                    <i class="fa-regular fa-bell"></i>
+                    <h2>Notifications</h2>
+                </div>
+                <div class="settings-list">
+                    <div class="settings-row">
+                        <div class="settings-info">
+                            <h4>Email Notifications</h4>
+                            <p class="text-muted">Receive habit reminders via email</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="email-notif" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-row">
+                        <div class="settings-info">
+                            <h4>Push Notifications</h4>
+                            <p class="text-muted">Get push notifications for habits</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="push-notif">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-row border-none">
+                        <div class="settings-info">
+                            <h4>Weekly Report</h4>
+                            <p class="text-muted">Receive weekly progress summary</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="weekly-report" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <section class="settings-card">
+                <div class="card-header">
+                    <i class="fa-solid fa-globe"></i>
+                    <h2>Preferences</h2>
+                </div>
+                <div class="settings-list">
+                    <div class="settings-row">
+                        <div class="settings-info">
+                            <h4>Dark Mode</h4>
+                            <p class="text-muted">Enable dark theme</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="dark-mode-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-row-vertical border-none">
+                        <label for="language-select">Language</label>
+                        <select id="language-select" class="form-input">
+                            <option value="en">English (US)</option>
+                            <option value="bn">Bangla (বাংলা)</option>
+                            <option value="es">Spanish (Español)</option>
+                            <option value="fr">French (Français)</option>
+                            <option value="de">German (Deutsch)</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <section class="settings-card">
+                <div class="card-header">
+                    <h2>Account Actions</h2>
+                </div>
+                <div class="action-buttons">
+                    <button type="button" class="btn-outline" id="btn-export">Export Data</button>
+                    <button type="button" class="btn-outline-danger" id="btn-delete-acc">Delete Account</button>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <script src="settings.js"></script>
+    
+    <script src="thems.js"></script>
+    
+</body>
+</html>
