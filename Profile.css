@@ -17,7 +17,7 @@ main {
   padding: 32px 24px;
 }
 
-/* ─── Page Header ─────────────────────────────────────────── */
+/* ... Page Header .... */
 .Page-Header {
   margin-bottom: 28px;
 }
@@ -34,7 +34,7 @@ main {
   color: #64748b;
 }
 
-/* ─── Profile Card ────────────────────────────────────────── */
+/* ... Profile Card .... */
 .Profile-card {
   background: #ffffff;
   border-radius: 14px;
@@ -123,7 +123,7 @@ main {
   color: #94a3b8;
 }
 
-/* ─── Stats Grid ──────────────────────────────────────────── */
+/*....Stats Grid .... */
 .Stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -182,7 +182,7 @@ main {
   background: #f3f0ff;
 }
 
-/* ─── Bottom Grid ─────────────────────────────────────────── */
+/* ... Bottom Grid .... */
 .bottom-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -204,7 +204,7 @@ main {
   margin-bottom: 18px;
 }
 
-/* ─── Achievements Grid ───────────────────────────────────── */
+/* .... Achievements Grid ..... */
 .achievements-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -265,7 +265,7 @@ main {
   color: #94a3b8;
 }
 
-/* ─── Recent Activity ─────────────────────────────────────── */
+/* .... Recent Activity .... */
 .activity-list {
   display: flex;
   flex-direction: column;
@@ -306,7 +306,7 @@ main {
   color: #94a3b8;
 }
 
-/* ─── Responsive ──────────────────────────────────────────── */
+/*.... Responsive ..... */
 @media (max-width: 900px) {
   .Stats-grid {
     grid-template-columns: repeat(2, 1fr);
