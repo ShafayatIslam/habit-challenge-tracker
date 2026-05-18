@@ -1,0 +1,103 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Registration</title> 
+  <link rel="stylesheet" href="Registration.css"> 
+</head> 
+<body> 
+  <div class="Registration"> 
+ 
+    <form class="page-form"> 
+      <header class="head"> 
+        <div class="header-part"> 
+          <h1>Create your account</h1> 
+        </div> 
+ 
+        <div class="header-second"> 
+          <p>Already have an account? <a href="#">Sign in</a></p> 
+        </div> 
+ 
+      </header> 
+  
+      <div class="fields"> 
+  
+        <div class="fullname-field">
+          <div class="field"> 
+            <label for="fname">First name</label> 
+            <input type="text" id="fname" placeholder="John" required> 
+          </div> 
+   
+          <div class="field"> 
+            <label for="lname">Last name</label> 
+            <input type="text" id="lname" placeholder="Doe"> 
+          </div>
+        </div>  
+  
+        <div class="field"> 
+          <label for="email">Email address</label> 
+          <input type="email" id="email" placeholder="john.doe@example.com" required> 
+        </div>
+
+        <div class="field"> 
+          <label for="email">Date of Birth</label> 
+          <input type="date" id="dob" required> 
+        </div>
+
+        <div class="field">
+          <label for="gender">Gender</label>
+          <Select>
+            <option>MALE</option>
+            <option>FEMALE</option>
+            <option>OTHER</option>
+          </Select>
+        </div>
+        
+        <div class="field"> 
+          <label>Adddress (Optional)</label> 
+          <input type="text" id="address" placeholder="Enter your address"> 
+        </div>
+
+        <hr style="margin-top: 10px;">
+
+        <div class="field"> 
+          <label for="username">Username</label> 
+          <input type="text" id="username" placeholder="johndoe96" required> 
+        </div>
+  
+        <div class="field"> 
+          <label for="password">Password</label> 
+          <div class="input-wrap"> 
+            <input type="password" id="password" placeholder="Create a strong password"> 
+          </div> 
+         
+          <div class="strength-bar" id="strength-bar"> 
+            <span id="bar1" class="empty-bar"></span>
+            <span id="bar2" class="empty-bar"></span>
+            <span id="bar3" class="empty-bar"></span>
+            <span id="bar4" class="empty-bar"></span> 
+          </div> 
+          <div class="strength-text" id="strength-text"></div> 
+        </div> 
+  
+        <div class="field"> 
+          <label for="confirm">Confirm password</label> 
+          <div class="input-wrap"> 
+            <input type="password" id="confirm" placeholder="Repeat your password" 
+                   autocomplete="new-password"> 
+          </div> 
+        </div> 
+         
+        <label class="terms"> 
+          <input type="checkbox" id="terms" required> 
+          I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a> 
+        </label> 
+  
+        <button type="submit" class="btn-submit" id="submit-btn"> Create Account </button> 
+      </div> 
+    </form> 
+  </div> 
+
+  <script src="Registration.js"></script>
+</body>
