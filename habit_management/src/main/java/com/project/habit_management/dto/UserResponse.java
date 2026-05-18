@@ -1,5 +1,6 @@
-package com.project.habit_management.model;
+package com.project.habit_management.dto;
 
+import com.project.habit_management.model.User;
 import lombok.Getter;
 
 @Getter
