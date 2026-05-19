@@ -29,4 +29,28 @@ public class GlobalExceptionHandler {
         );
         return new ResponseEntity<>(body, status);
     }
+
+    @ExceptionHandler(UsernameConflictException.class)
+    public ResponseEntity<ErrorResponse> handleUsernameConflict(UsernameConflictException ex){
+        ErrorResponse response = new ErrorResponse(
+                111,
+                "Username Conflict",
+                ex.getMessage(),
+                LocalDateTime.now().toString()
+        );
+
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleUserNotFound(UsernameConflictException ex){
+        ErrorResponse response = new ErrorResponse(
+                112,
+                "User Not Found!",
+                ex.getMessage(),
+                LocalDateTime.now().toString()
+        );
+
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+    }
 }
