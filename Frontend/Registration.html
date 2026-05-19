@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <title>Registration</title> 
   <link rel="stylesheet" href="Registration.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head> 
 <body> 
   <div class="Registration"> 
@@ -98,6 +99,33 @@
       </div> 
     </form> 
   </div> 
+
+  <div id="overlay" class="hidden">
+    <div id="password-confirmation" class="hidden">
+      <div class="popup-msg">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <p>Passwords do not match!</p>
+      </div>
+      <button id="ok-btn" class="popup-btn">Ok</button>
+    </div>
+    <div id="error-alert" class="hidden">
+      <div class="popup-msg">
+        <i class="fa-solid fa-circle-xmark"></i>
+        <p>Something went wrong</p>
+      </div>
+      <button id="try-btn" class="popup-btn">Try again</button>
+    </div>
+    <div id="reg-success" class="hidden">
+      <div class="popup-msg">
+        <i class="fa-solid fa-circle-check"></i>
+        <p>Your account created successfully.</p>
+      </div>
+      <div class="btn-group">
+        <button id="cancel-btn" class="popup-btn">Cancel</button>
+        <button id="go-login-page" class="popup-btn">Go to login page</button>
+      </div>
+    </div>
+  </div>
 
   <script src="Registration.js"></script>
 </body>

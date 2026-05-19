@@ -304,6 +304,68 @@ label.terms a:hover {
   background: var(--accent-light); 
   box-shadow: 0 2px 8px rgba(108, 99, 255, 0.1); 
 } 
+
+/* POPUP */
+.overlay{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 1000;
+}
+.popup{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 400px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+.popup-msg{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.popup-msg i{
+  font-size: 50px;
+  color: red;
+}
+.popup-msg p{
+  font-size: 16px;
+  font-weight: bold;
+}
+.popup-btn{
+  border: none;
+  background:#2563eb;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.popup-btn:hover{
+  background: #1d4ed8;
+}
+.hidden{
+  display: none;
+}
+.btn-group{
+  display: flex;
+  gap: 10px;
+}
+#reg-success i{
+  color: green;
+}
  
 @media (max-width: 560px) { 
   .Registration { 
