@@ -20,13 +20,13 @@
         <a href="index.html" class="active"
           ><i class="fa-solid fa-border-all"></i> Dashboard</a
         >
-        <a href="habits.html"><i class="fa-regular fa-square-check"></i> Habits</a>
+        <a href="../Habits-part/habits.html"><i class="fa-regular fa-square-check"></i> Habits</a>
         <a href="#"><i class="fa-regular fa-calendar-check"></i> Tasks</a>
-        <a href="#"><i class="fa-solid fa-medal"></i> Challenges</a>
-        <a href="#"><i class="fa-solid fa-chart-simple"></i> Leaderboard</a>
+        <a href="../challenge part/index.html"><i class="fa-solid fa-medal"></i> Challenges</a>
+        <a href="../leader board/index.html"><i class="fa-solid fa-chart-simple"></i> Leaderboard</a>
         <a href="#"><i class="fa-regular fa-calendar"></i> Calendar</a>
         <a href="#"><i class="fa-regular fa-user"></i> Profile</a>
-        <a href="settigns.html"><i class="fa-solid fa-gear"></i> Settings</a>
+        <a href="../Settings part/settigns.html"><i class="fa-solid fa-gear"></i> Settings</a>
       </div>
       <div class="nav-logout">
         <a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
@@ -66,77 +66,87 @@
         </section>
 
         <section class="content-grid">
-          <article class="panel" id="habits">
-            <div class="panel-header">
-              <h2>Active Habits</h2>
-              <a href="#">View all</a>
-            </div>
-            <div class="item-list">
-              <div class="item done">
-                <span class="item-icon">✔️</span>
-                <div>
-                  <p class="item-title done-text">Morning Meditation</p>
-                  <p class="item-meta">12 day streak</p>
+          <article class="panel habits-panel" id="habits">
+            <div class="habits-panel-head">
+              <div>
+                <p class="panel-eyebrow">Habit focus</p>
+                <div class="panel-header panel-header--stacked">
+                  <h2>Active Habits</h2>
+                  <a href="#">View all</a>
                 </div>
+                <p class="panel-copy">
+                  Keep the momentum going with the habits you are already building.
+                </p>
               </div>
-              <div class="item done">
-                <span class="item-icon">✔️</span>
-                <div>
-                  <p class="item-title done-text">Exercise 30 min</p>
-                  <p class="item-meta">8 day streak</p>
-                </div>
-              </div>
-              <div class="item">
-                <span class="item-icon blocked">■</span>
-                <div>
-                  <p class="item-title">Read 20 pages</p>
-                  <p class="item-meta">15 day streak</p>
-                </div>
-              </div>
-              <div class="item">
-                <span class="item-icon blocked">■</span>
-                <div>
-                  <p class="item-title">Drink 8 glasses water</p>
-                  <p class="item-meta">10 day streak</p>
-                </div>
+              <div class="habits-score">
+                <span>Today&apos;s completion</span>
+                <strong>2 / 4</strong>
+                <div class="score-bar"><div style="width: 50%"></div></div>
               </div>
             </div>
-          </article>
 
-          <article class="panel" id="tasks">
-            <div class="panel-header">
-              <h2>Today’s Tasks</h2>
-              <a href="#">View all</a>
+            <div class="habit-metrics">
+              <div class="habit-metric">
+                <span>Current streak</span>
+                <strong>12 days</strong>
+              </div>
+              <div class="habit-metric">
+                <span>Active habits</span>
+                <strong>8</strong>
+              </div>
+              <div class="habit-metric">
+                <span>Done today</span>
+                <strong>2</strong>
+              </div>
+              <div class="habit-metric">
+                <span>Goal progress</span>
+                <strong>75%</strong>
+              </div>
             </div>
-            <div class="item-list">
+
+            <div class="habit-list">
               <div class="item done">
                 <span class="item-icon">✔️</span>
-                <div>
-                  <p class="item-title done-text">Complete morning workout</p>
-                  <p class="item-meta">7:00 AM</p>
+                <div class="item-body">
+                  <div class="item-row">
+                    <p class="item-title done-text">Morning Meditation</p>
+                    <span class="habit-badge done">Completed</span>
+                  </div>
+                  <p class="item-meta">12 day streak</p>
+                  <div class="mini-progress"><div style="width: 100%"></div></div>
                 </div>
               </div>
               <div class="item done">
                 <span class="item-icon">✔️</span>
-                <div>
-                  <p class="item-title done-text">
-                    Review project documentation
-                  </p>
-                  <p class="item-meta">10:00 AM</p>
+                <div class="item-body">
+                  <div class="item-row">
+                    <p class="item-title done-text">Exercise 30 min</p>
+                    <span class="habit-badge done">Completed</span>
+                  </div>
+                  <p class="item-meta">8 day streak</p>
+                  <div class="mini-progress"><div style="width: 100%"></div></div>
                 </div>
               </div>
               <div class="item">
                 <span class="item-icon blocked">■</span>
-                <div>
-                  <p class="item-title">Team meeting</p>
-                  <p class="item-meta">2:00 PM</p>
+                <div class="item-body">
+                  <div class="item-row">
+                    <p class="item-title">Read 20 pages</p>
+                    <span class="habit-badge">In progress</span>
+                  </div>
+                  <p class="item-meta">15 day streak</p>
+                  <div class="mini-progress"><div style="width: 65%"></div></div>
                 </div>
               </div>
               <div class="item">
                 <span class="item-icon blocked">■</span>
-                <div>
-                  <p class="item-title">Evening meditation</p>
-                  <p class="item-meta">7:00 PM</p>
+                <div class="item-body">
+                  <div class="item-row">
+                    <p class="item-title">Drink 8 glasses water</p>
+                    <span class="habit-badge">In progress</span>
+                  </div>
+                  <p class="item-meta">10 day streak</p>
+                  <div class="mini-progress"><div style="width: 40%"></div></div>
                 </div>
               </div>
             </div>

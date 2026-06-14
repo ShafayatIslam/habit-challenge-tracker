@@ -49,10 +49,7 @@ body {
     font-size: 0.98rem;
 }
 
-.icon-primary {
-    color: var(--primary);
-    font-size: 1.55rem;
-}
+.icon-purple { color: #4f46e5; font-size: 1.6rem; }
 
 .mt-3 {
     margin-top: 1rem;
@@ -64,70 +61,56 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--card-bg);
-    border-bottom: 1px solid var(--border-color);
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 42px;
-    height: 88px;
-    z-index: 1000;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+    padding: 0 40px;
+    height: 80px;
+    z-index: 100;
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: 12px;
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: var(--text-main);
-    letter-spacing: -0.02em;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 .nav-links {
     display: flex;
-    gap: 20px;
+    gap: 25px;
 }
 
-.nav-item {
+.nav-links a {
     text-decoration: none;
-    color: var(--text-muted);
-    font-weight: 600;
+    color: #6b7280;
+    font-weight: 500;
     font-size: 1rem;
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px 14px;
-    border-radius: 10px;
+    gap: 8px;
     transition: 0.2s;
 }
 
-.nav-item:hover {
-    color: var(--primary);
-    background-color: rgba(91, 61, 245, 0.05);
-}
+.nav-links a:hover { color: #4f46e5; }
 
-.nav-item.active {
-    color: var(--primary);
-    background-color: rgba(91, 61, 245, 0.1);
+.nav-links a.active {
+    color: #4f46e5;
+    background-color: #eef2ff;
+    padding: 8px 16px;
+    border-radius: 8px;
 }
 
 .nav-logout a {
     text-decoration: none;
-    color: var(--text-muted);
-    font-weight: 600;
+    color: #6b7280;
+    font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 1rem;
-}
-
-.menu-toggle {
-    display: none;
-    font-size: 1.75rem;
-    cursor: pointer;
-    color: var(--text-main);
+    gap: 8px;
 }
 
 /* Main Container */

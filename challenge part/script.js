@@ -95,32 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // First render diye page load er shathe UI populate kora hocche
     showPage("allChallenges");
 
-    // --- Mobile Menu Toggle ---
-    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-    const navLinksContainer = document.getElementById("nav-links");
-    if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener("click", () => {
-            // Mobile e menu open/close toggle hocche
-            navLinksContainer.classList.toggle("show");
-        });
-    }
-
-    // --- Navbar Navigation (SPA Routing) ---
-    const navLinks = document.querySelectorAll(".nav-item");
-    navLinks.forEach(link => {
-        link.addEventListener("click", (e) => {
-            e.preventDefault();
-            // Je link click hoyeche tar active state set kora hocche
-            navLinks.forEach(n => n.classList.remove("active"));
-            e.currentTarget.classList.add("active");
-            
-            const targetPage = e.currentTarget.getAttribute("data-page");
-            if (targetPage === "allChallenges" || targetPage === "habits" || targetPage === "dashboard") {
-                showPage("allChallenges");
-            }
-            if (window.innerWidth <= 600) navLinksContainer.classList.remove("show");
-        });
-    });
+    // Navbar links now use direct page navigation across the project.
 
     // --- Page level button actions ---
     document.getElementById("btn-goto-my-challenges").addEventListener("click", (e) => {
