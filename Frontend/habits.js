@@ -9,9 +9,12 @@ let deleteTargetId = null;
 let editTargetId = null;            
 
 async function loadHabits(){
+    showLoading();
     try{
         const response = await fetch(`${url}/${userId}`);
         habitsArray = await response.json();
+
+        hideLoading();
         renderHabits();
     }catch(e){
         console.error("Error loading habits: ",e);
@@ -49,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("add-habit-form").addEventListener("submit", async (e) => {
         e.preventDefault();
         
-        // New habit data collect kora hocche input theke
         const newHabit = {
             name: document.getElementById("name").value.trim(),
             description: document.getElementById("desc").value.trim(),
@@ -59,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
             userId: userId
         };
 
+        showLoading();
         try{
             const response = await fetch(`${url}/creation`, {
                 method: "POST",
@@ -71,9 +74,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if(!response.ok){
                 const error = await response.json();
                 console.log(error.message);
+                hideLoading();
                 return;
             }
 
+            hideLoading();
             loadHabits();
             addModal.classList.add("hidden");
         }catch(e){
@@ -101,6 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
             type: document.getElementById("edit-type").value
         }
 
+        showLoading();
         try{
             const response = await fetch(`${url}/update/${editTargetId}`,{
                 method: "PUT",
@@ -113,8 +119,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if(!response.ok){
                 const error = await response.json();
                 alert(error.message);
+                hideLoading();
+                return;
             }
 
+            hideLoading();
             loadHabits();
         }catch(e){
             console.error(e);
@@ -129,6 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btn-confirm-delete").addEventListener("click", async (e) => {
         e.preventDefault();
 
+        showLoading();
         try{
             const response = await fetch(`${url}/delete/${deleteTargetId}`,{
                 method: "DELETE"
@@ -136,8 +146,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if(!response.ok){
                 const error = await response.json();
+                console.log(error.message);
+                hideLoading();
+                return;
             }
 
+            hideLoading();
             habitsArray = habitsArray.filter(h => h.id !== deleteTargetId); // Remove habit
             renderHabits();
             deleteModal.classList.add("hidden");
@@ -217,6 +231,7 @@ async function markComplete(habitId){
   
 // Render habit cards
 async function renderHabits() {
+    showLoading();
     const habitListContainer = document.getElementById("habitlist");
     habitListContainer.innerHTML = ""; // Clear existing list (purono card remove)
 
@@ -267,6 +282,13 @@ async function renderHabits() {
 
         habitListContainer.insertAdjacentHTML("beforeend", cardHTML); // Add card to UI
     }
+    hideLoading();
 }
 
-
+const loadingOverlay = document.getElementById("loading-overlay");
+function showLoading() {
+    loadingOverlay.classList.replace("hidden", "overlay");
+}
+function hideLoading() {
+    loadingOverlay.classList.replace("overlay", "hidden");
+}
