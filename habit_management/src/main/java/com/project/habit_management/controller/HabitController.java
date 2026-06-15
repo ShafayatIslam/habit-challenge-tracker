@@ -57,4 +57,9 @@ public class HabitController {
         String msg = service.markComplete(id);
         return new ResponseEntity<>(msg, HttpStatus.OK);
     }
+
+    @GetMapping("/total/{userId}")
+    public ResponseEntity<Integer> countHabitsByUserId(@PathVariable Integer userId){
+        return ResponseEntity.status(HttpStatus.OK).body(service.countHabitsByUserId(userId));
+    }
 }
