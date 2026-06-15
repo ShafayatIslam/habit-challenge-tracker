@@ -14,7 +14,7 @@ let challengesArray = [
         status: "active",
         startDate: "2026-04-01",
         endDate: "2026-04-30",
-        joined: true, // Indicates if current user has joined
+        joined: true, 
         rules: [
             "Complete at least 30 minutes of exercise daily",
             "Log your workout in the app",
@@ -87,17 +87,14 @@ let activeChallengeId = null;
 
 
  
-// 2. DOMContentLoaded & EVENT LISTENERS
+
  
 // DOMContentLoaded mane: HTML load hoye gele tarpor JS event attach hobe
 document.addEventListener("DOMContentLoaded", () => {
 
-    // First render diye page load er shathe UI populate kora hocche
+    
     showPage("allChallenges");
 
-    // Navbar links now use direct page navigation across the project.
-
-    // --- Page level button actions ---
     document.getElementById("btn-goto-my-challenges").addEventListener("click", (e) => {
         e.preventDefault();
         showPage("myChallenges");
@@ -108,13 +105,12 @@ document.addEventListener("DOMContentLoaded", () => {
         showPage("allChallenges");
     });
 
-    // Empty state theke abar list e ferot ashar button
+    
     document.getElementById("btn-explore-challenges").addEventListener("click", (e) => {
         e.preventDefault();
         showPage("allChallenges");
     });
 
-    // Search redirect button e click করলে search box e niye jawa hocche
     const btnSearchRedirect = document.getElementById("btn-search-redirect");
     if(btnSearchRedirect) {
         btnSearchRedirect.addEventListener("click", (e) => {
@@ -126,26 +122,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // --- Search & Filters ---
     
-    // All challenges search input
     document.getElementById("search-all").addEventListener("input", (e) => {
         searchQueryAll = e.target.value.toLowerCase();
         renderAllChallenges();
     });
 
-    // My challenges search input
     document.getElementById("search-my").addEventListener("input", (e) => {
         searchQueryMy = e.target.value.toLowerCase();
         renderMyChallenges();
     });
 
-    // Category filter button gula event delegation diye handle hocche
     document.getElementById("filter-all-challenges").addEventListener("click", (e) => {
         const btn = e.target.closest(".filter-btn");
         if (btn) {
             e.preventDefault();
-            // Purono active filter remove kore notun ta set kora hocche
+            
             document.querySelectorAll("#filter-all-challenges .filter-btn").forEach(b => b.classList.remove("active"));
             btn.classList.add("active");
             currentFilter = btn.getAttribute("data-filter");
@@ -153,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // --- Modal Logic (Create Challenge) ---
+    
     const createModal = document.getElementById("create-modal-overlay");
     const createForm = document.getElementById("form-create-challenge");
 
