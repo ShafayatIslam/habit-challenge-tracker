@@ -22,13 +22,15 @@ public class ChallengeService {
     final private ChallengeSecurityRepo securityRepo;
     final private UserChallengeRepo userChallengeRepo;
     final private PasswordEncoder passwordEncoder;
+    final private PointService pointService;
 
-    public ChallengeService(ChallengeRepo challengeRepo, UserRepo userRepo, ChallengeSecurityRepo securityRepo, UserChallengeRepo userChallengeRepo, PasswordEncoder passwordEncoder) {
+    public ChallengeService(ChallengeRepo challengeRepo, UserRepo userRepo, ChallengeSecurityRepo securityRepo, UserChallengeRepo userChallengeRepo, PasswordEncoder passwordEncoder, PointService pointService) {
         this.challengeRepo = challengeRepo;
         this.userRepo = userRepo;
         this.securityRepo = securityRepo;
         this.userChallengeRepo = userChallengeRepo;
         this.passwordEncoder = passwordEncoder;
+        this.pointService = pointService;
     }
 
     public void createChallenge(ChallengeRequest request){
@@ -68,6 +70,8 @@ public class ChallengeService {
         userChallenge.setJoiningDate(today);
 
         userChallengeRepo.save(userChallenge);
+
+        pointService.updateUserPoint(request.getUserId(), 5);
     }
 
     public void updateChallenge(Long challengeId, ChallengeRequest request){
