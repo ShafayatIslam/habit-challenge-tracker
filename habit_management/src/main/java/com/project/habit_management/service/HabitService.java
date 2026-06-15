@@ -15,12 +15,16 @@ import java.util.List;
 
 @Service
 public class HabitService {
-    private final HabitRepo repository;
-    @Autowired
-    private HabitRepo habitRepo;
 
-    @Autowired
-    private UserRepo userRepo;
+    final private HabitRepo habitRepo;
+    final private UserRepo userRepo;
+    final private PointService pointService;
+
+    public HabitService(HabitRepo habitRepo, UserRepo userRepo, PointService pointService) {
+        this.habitRepo = habitRepo;
+        this.userRepo = userRepo;
+        this.pointService = pointService;
+    }
 
     public List<HabitResponse> getAllHabits(){
         return habitRepo.findAll().stream().map(HabitResponse::fromEntity).toList();
@@ -33,7 +37,7 @@ public class HabitService {
     public void addHabit(HabitRequest hr){
         Habit habit = HabitRequest.toEntity(hr);
         habit.setUser(userRepo.findById(hr.getUserId()).orElse(null)); //UserRepo is used here to find user.
-
+        pointService.updateUserPoint(hr.getUserId(), 3);
         habitRepo.save(habit);
     }
 
@@ -50,10 +54,8 @@ public class HabitService {
     }
 
     public void deleteHabit(Integer id){
-        if(!habitRepo.existsById(id)){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Habit Not Found!!");
-        }
-
+        Habit habit = habitRepo.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Habit Not Found!!"));
+        pointService.updateUserPoint(habit.getUser().getId(), -3);
         habitRepo.deleteById(id);
     }
 
@@ -95,11 +97,16 @@ public class HabitService {
             streak++;
             habit.setStreak(streak);
             habit.setLastCompleted(today);
+            pointService.updateUserPoint(habit.getUser().getId(), 1);
             habitRepo.save(habit);
 
             return "Marked successfully.";
         }
 
         return "Already marked.";
+    }
+
+    public Integer countHabitsByUserId(Integer userId){
+        return habitRepo.countByUserId(userId);
     }
 }
