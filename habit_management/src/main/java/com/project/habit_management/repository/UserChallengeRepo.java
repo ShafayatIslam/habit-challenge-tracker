@@ -15,6 +15,7 @@ public interface UserChallengeRepo extends JpaRepository<UserChallenge, Long> {
     Boolean existsByChallengeId(Long challengeId);
     UserChallenge findByUserIdAndChallengeId(Integer userId, Long challengeId);
     Long countByChallengeId(Long challengeId);
+    Integer countByUserId(Integer userId);
 
     @Transactional
     void deleteByUserIdAndChallengeId(Integer userid, Long challengeId);
