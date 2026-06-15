@@ -1,7 +1,9 @@
 package com.project.habit_management.dto;
 
 import com.project.habit_management.model.Habit;
+import com.project.habit_management.repository.UserRepo;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Data
 public class HabitRequest {
