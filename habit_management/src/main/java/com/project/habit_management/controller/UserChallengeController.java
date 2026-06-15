@@ -57,14 +57,19 @@ public class UserChallengeController {
         return ResponseEntity.status(HttpStatus.OK).body(userChallengeService.canJoin(userId, challengeId));
     }
 
-    @GetMapping("challenge/leaderboard/{challengeId}")
+    @GetMapping("/challenge/leaderboard/{challengeId}")
     public ResponseEntity<List<ChallengeLeaderboardResponse>> getChallengeLeaderboard(@PathVariable Long challengeId){
         return ResponseEntity.status(HttpStatus.OK).body(userChallengeService.getChallengeLeaderboard(challengeId));
     }
 
-    @DeleteMapping("challenge/{userId}/{challengeId}")
+    @DeleteMapping("/challenge/{userId}/{challengeId}")
     public ResponseEntity<String> leaveChallenge(@PathVariable Integer userId, @PathVariable Long challengeId){
         userChallengeService.leaveChallenge(userId, challengeId);
         return ResponseEntity.status(HttpStatus.OK).body("You have left this challenge successfully.");
+    }
+
+    @GetMapping("/challenge/total/{userId}")
+    public ResponseEntity<Integer> countChallengeByUserId(@PathVariable Integer userId){
+        return ResponseEntity.status(HttpStatus.OK).body(userChallengeService.countChallengeByUserId(userId));
     }
 }
