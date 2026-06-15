@@ -22,11 +22,13 @@ public class UserChallengeService {
     final private UserChallengeRepo userChallengeRepo;
     final private ChallengeRepo challengeRepo;
     final private UserRepo userRepo;
+    final private PointService pointService;
 
-    public UserChallengeService(UserChallengeRepo userChallengeRepo, ChallengeRepo challengeRepo, UserRepo userRepo) {
+    public UserChallengeService(UserChallengeRepo userChallengeRepo, ChallengeRepo challengeRepo, UserRepo userRepo, PointService pointService) {
         this.userChallengeRepo = userChallengeRepo;
         this.challengeRepo = challengeRepo;
         this.userRepo = userRepo;
+        this.pointService = pointService;
     }
 
     public void joinChallenge(Integer userId, Long challengeId){
@@ -42,6 +44,8 @@ public class UserChallengeService {
         userChallenge.setStreak(0);
         LocalDate today = LocalDate.now();
         userChallenge.setJoiningDate(today);
+
+        pointService.updateUserPoint(userId, 3);
 
         userChallengeRepo.save(userChallenge);
     }
@@ -85,6 +89,8 @@ public class UserChallengeService {
         int streak = userChallenge.getStreak();
         userChallenge.setStreak(++streak);
 
+        pointService.updateUserPoint(userId, 2);
+
         userChallengeRepo.save(userChallenge);
         return "Challenge is completed.";
     }
@@ -110,5 +116,10 @@ public class UserChallengeService {
 
     public void leaveChallenge(Integer userId, Long challengeId){
         userChallengeRepo.deleteByUserIdAndChallengeId(userId, challengeId);
+        pointService.updateUserPoint(userId, -3);
+    }
+
+    public Integer countChallengeByUserId(Integer userId){
+        return userChallengeRepo.countByUserId(userId);
     }
 }

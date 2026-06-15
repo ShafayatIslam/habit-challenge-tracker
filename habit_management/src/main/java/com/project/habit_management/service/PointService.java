@@ -1,10 +1,14 @@
 package com.project.habit_management.service;
 
+import com.project.habit_management.dto.LeaderBoardResponse;
+import com.project.habit_management.exception.UserNotFoundException;
 import com.project.habit_management.model.Point;
 import com.project.habit_management.model.User;
 import com.project.habit_management.repository.PointRepo;
 import com.project.habit_management.repository.UserRepo;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class PointService {
@@ -23,5 +27,17 @@ public class PointService {
         point.setUser(user);
         point.setPoints(0);
         pointRepo.save(point);
+    }
+
+    public void updateUserPoint(Integer userId, Integer point){
+        if(!pointRepo.existsByUserId(userId))
+            throw new UserNotFoundException();
+        Point userPoint = pointRepo.findByUserId(userId);
+        userPoint.setPoints(userPoint.getPoints() + point);
+        pointRepo.save(userPoint);
+    }
+
+    public List<LeaderBoardResponse> getLeaderBoardUsers(){
+        return pointRepo.getLeaderBoardUsers();
     }
 }
