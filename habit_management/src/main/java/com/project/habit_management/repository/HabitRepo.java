@@ -10,4 +10,5 @@ public interface HabitRepo extends JpaRepository<Habit, Integer> {
 
     List<Habit> findByUserId(int id, Sort sort);
     List<Habit> findByUser_IdOrderByIdAsc(int id);
+    Integer countByUserId(Integer userId);
 }
