@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Challenge App</title>
+    <link rel="stylesheet" href="challenge.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-trophy icon-primary"></i>
+            <span>Habit Challenge</span>
+        </div>
+        
+        <div class="menu-toggle" id="mobile-menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="nav-links" id="nav-links">
+            <a href="#" class="nav-item" data-page="dashboard"><i class="fa-solid fa-border-all"></i> Dashboard</a>
+            <a href="#" class="nav-item" data-page="habits"><i class="fa-regular fa-square-check"></i> Habits</a>
+            <a href="#" class="nav-item active" data-page="allChallenges"><i class="fa-solid fa-medal"></i> Challenges</a>
+            <a href="#" class="nav-item" data-page="leaderboard"><i class="fa-solid fa-chart-simple"></i> Leaderboard</a>
+            <a href="#" class="nav-item" data-page="calendar"><i class="fa-regular fa-calendar"></i> Calendar</a>
+            <a href="#" class="nav-item" data-page="profile"><i class="fa-regular fa-user"></i> Profile</a>
+            <a href="#" class="nav-item" data-page="settings"><i class="fa-solid fa-gear"></i> Settings</a>
+        </div>
+        
+        <div class="nav-logout">
+            <a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        
+        <section id="view-allChallenges" class="view-section">
+            <header class="page-header">
+                <div>
+                    <h1>Challenges</h1>
+                    <p class="text-muted">Join or create challenges to stay motivated</p>
+                </div>
+                <button type="button" class="btn btn-primary" id="btn-goto-my-challenges">
+                    <i class="fa-solid fa-trophy"></i> My Challenges
+                </button>
+            </header>
+
+            <div class="controls-bar">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="search-all" placeholder="Search challenges...">
+                </div>
+                <div class="filter-group" id="filter-all-challenges">
+                    <button class="filter-btn active" type="all">All</button>
+                    <button class="filter-btn" type="public"><i class="fa-solid fa-globe"></i> Public</button>
+                    <button class="filter-btn" type="private"><i class="fa-solid fa-lock"></i> Private</button>
+                </div>
+            </div>
+
+            <div class="challenge-container">
+                <div class="cards-grid" id="all-challenges-grid">
+                </div>
+                <div class="cards-grid" id="searched-challenges-grid">
+                </div>
+            </div>
+        </section>
+
+
+        <section id="view-myChallenges" class="view-section hidden">
+            <a href="#" class="back-link" id="btn-back-to-challenges">
+                <i class="fa-solid fa-arrow-left"></i> Back to All Challenges
+            </a>
+            <header class="page-header">
+                <div>
+                    <h1>Challenges</h1>
+                    <p class="text-muted">Join or create challenges to stay motivated</p>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-success btn-create" id="btn-open-create-modal">
+                        <i class="fa-solid fa-plus"></i> Create Challenge
+                    </button>
+                </div>
+            </header>
+
+            <div class="controls-bar">
+                <!-- <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="search-my" placeholder="Search my challenges...">
+                </div> -->
+                <button type="button" class="btn btn-outline" id="btn-search-redirect" style="display: none;">
+                    Find Challenges
+                </button>
+            </div>
+
+            <div class="cards-grid" id="my-challenges-grid">
+            </div>
+            
+            <div id="empty-state-my" class="empty-state hidden">
+                <i class="fa-regular fa-folder-open"></i>
+                <h3>No Challenges Joined Yet</h3>
+                <p class="text-muted">Explore public challenges and join to see them here.</p>
+                <button type="button" class="btn btn-primary mt-3 explore-btn" id="btn-explore-challenges">Explore Challenges</button>
+            </div>
+        </section>
+
+
+        <section id="view-challengeDetails" class="view-section hidden">
+            <a href="#" class="back-link" id="btn-back-to-challenges">
+                <i class="fa-solid fa-arrow-left"></i> Back to Challenges
+            </a>
+
+            <div id="details-container">
+            </div>
+        </section>
+
+        <section id="view-myChallengeDetails" class="view-section hidden">
+            <a href="#" class="back-link" id="btn-back-to-challenges">
+                <i class="fa-solid fa-arrow-left"></i> Back to All Challenges
+            </a>
+
+            <div id="myChallenge-details-container">
+            </div>
+        </section>
+
+        <!-- Private Challenge Varification Overlay -->
+        <div id="security-verification-overlay" class="hidden">
+            <div class="security-varification">
+                <div class="form-group">
+                    <label>Challenge ID</label>
+                    <input type="text" class="c-id" required>
+                </div>
+                <div class="form-group">
+                    <label>Challenge PIN</label>
+                    <input type="password" class="c-pin" required>
+                </div>
+                <div class="security-btn-group">
+                    <button type="submit" class="btn btn-primary btn-varification">Join</button>
+                    <button type="button" class="btn btn-outline btn-cancel-varification" id="btn-cancel-create">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOADING OVERLAY -->
+        <div id="loading-overlay" class="overlay hidden">
+            <div class="loading-box">
+                <div class="circle-loader"></div>
+            </div>
+        </div>
+
+        <!-- POPUP -->
+        <div id="overlay" class="hidden">
+            <div id="warning" class="hidden">
+                <div class="popup-msg">
+                    <i class="fa-solid fa-triangle-exclamation" style="color: rgb(205, 63, 63);"></i>
+                    <p></p>
+                </div>
+                <div class="popup-btn-grp">
+                    <button id="yes">Yes</button>
+                    <button id="no">No</button>
+                </div>
+            </div>
+            <div id="positive-response" class="hidden">
+                <div class="popup-msg">
+                    <i class="fa-solid fa-circle-check" style="color: rgb(19, 168, 19);"></i>
+                    <p></p>
+                </div>
+                <button id="ok-btn" class="popup-btn">Ok</button>
+            </div>
+            <div id="error-alert" class="hidden">
+                <div class="popup-msg">
+                <i class="fa-solid fa-circle-xmark"></i>
+                <p></p>
+                </div>
+                <button id="try-btn" class="popup-btn">Try again</button>
+            </div>
+        </div>
+
+    </main>
+
+    <div id="create-modal-overlay" class="modal-overlay hidden">
+        <div class="modal-card">
+            <h2>Create New Challenge</h2>
+            <form id="form-create-challenge">
+                <div class="form-group">
+                    <label>Challenge Name</label>
+                    <input type="text" id="c-name" placeholder="e.g., 30-Day Fitness Challenge" required>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="c-desc" rows="3" placeholder="Describe your challenge..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Type</label>
+                    <select id="c-type" required>
+                        <option value="PUBLIC">Public</option>
+                        <option value="PRIVATE">Private</option>
+                    </select>
+                </div>
+                <div class="security hidden">
+                    <div class="form-group">
+                        <label>Challenge ID</label>
+                        <input type="text" id="c-id">
+                    </div>
+                    <div class="form-group">
+                        <label>Challenge PIN</label>
+                        <input type="password" id="c-pin">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Duration (days)</label>
+                    <input type="number" id="c-duration" min="1" value="7" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+                    <button type="button" class="btn btn-outline btn-cancel" id="btn-cancel-create">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="challenge.js"></script>
+</body>
+</html>
