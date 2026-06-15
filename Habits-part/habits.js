@@ -1,6 +1,6 @@
 // tui ei array ta bad diya api call kore data nis ata ami create korci dom er kaj thik hoice kina check korar jonno
 let habitsArray = [
-    { id: 1, name: "Morning Meditation", desc: "10 minutes of mindfulness", freq: "Daily", type: "Wellness", streak: 12, isCompleted: true },
+    { id: 1, name: "Morning Exersice", desc: "10 minutes of pushup", freq: "Daily", type: "Wellness", streak: 12, isCompleted: true },
     { id: 2, name: "Exercise", desc: "30 minutes workout", freq: "Daily", type: "Fitness", streak: 8, isCompleted: true },
     { id: 3, name: "Read", desc: "Read 20 pages", freq: "Daily", type: "Learning", streak: 15, isCompleted: false },
     { id: 4, name: "Drink Water", desc: "8 glasses per day", freq: "Daily", type: "Health", streak: 10, isCompleted: false }
