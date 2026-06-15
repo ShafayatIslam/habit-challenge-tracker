@@ -1,0 +1,342 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f1f5f9;
+  color: #1e293b;
+  min-height: 100vh;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+/* ─── Page Header ─── */
+.Page-Header {
+  margin-bottom: 28px;
+}
+
+.Page-Header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.Page-Header p {
+  font-size: 0.95rem;
+  color: #64748b;
+}
+
+/* ─ Profile Card ─ */
+.Profile-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 28px 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  margin-bottom: 22px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+  border: 1px solid #e8edf3;
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #6c63ff);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  letter-spacing: 1px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.profile-name-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-name-row h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.edit-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.edit-btn:hover {
+  color: #6c63ff;
+  background: #f1f0ff;
+}
+
+.profile-bio {
+  font-size: 0.93rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.profile-meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.profile-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.profile-meta svg {
+  flex-shrink: 0;
+  color: #94a3b8;
+}
+
+/* ─ Stats Grid ─ */
+.Stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.stat-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+  border: 1px solid #e8edf3;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.stat-icon.orange {
+  background: #fff4ed;
+}
+
+.stat-icon.yellow {
+  background: #fefce8;
+}
+
+.stat-icon.purple {
+  background: #ede9ff;
+}
+
+.stat-icon.violet {
+  background: #f3f0ff;
+}
+
+/* ─ Bottom Grid ─ */
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.section-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+  border: 1px solid #e8edf3;
+}
+
+.section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 18px;
+}
+
+/* ─ Achievements Grid ─ */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.achievement-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.achievement-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(108, 99, 255, 0.1);
+}
+
+.achievement-card.unlocked {
+  background: #eef0ff;
+  border-color: #c7caff;
+}
+
+.achievement-emoji {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.achievement-name {
+  font-size: 0.87rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.achievement-desc {
+  font-size: 0.78rem;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+.achievement-status {
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.achievement-status.unlocked {
+  color: #16a34a;
+}
+
+.achievement-status.locked {
+  color: #94a3b8;
+}
+
+/* ─── Recent Activity ── */
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.activity-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #6c63ff;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.activity-text {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #1e293b;
+  margin-bottom: 3px;
+}
+
+.activity-time {
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+
+/* ─── Responsive ── */
+@media (max-width: 900px) {
+  .Stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .Stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .Profile-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-meta {
+    justify-content: center;
+  }
+
+  .profile-name-row {
+    justify-content: center;
+  }
+
+  .achievements-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
