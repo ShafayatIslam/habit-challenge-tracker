@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:#ffffff;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* Background Shapes */
+
+body::before{
+    content:'';
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:linear-gradient(
+        135deg,
+        rgba(13,110,253,0.15),
+        rgba(13,110,253,0.02)
+    );
+    border-radius:50%;
+    top:-200px;
+    right:-100px;
+    z-index:-1;
+}
+
+body::after{
+    content:'';
+    position:absolute;
+    width:350px;
+    height:350px;
+    background:linear-gradient(
+        135deg,
+        rgba(13,110,253,0.12),
+        rgba(13,110,253,0.01)
+    );
+    border-radius:50%;
+    bottom:-100px;
+    left:-100px;
+    z-index:-1;
+}
+
+/* Navbar */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 8%;
+}
+
+.logo{
+    font-size:1.8rem;
+    font-weight:700;
+    color:#1565ff;
+}
+
+nav{
+    display:flex;
+    gap:18px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#1565ff;
+    font-weight:600;
+    transition:0.3s;
+}
+
+nav a:hover{
+    transform:translateY(-2px);
+}
+
+.register-btn{
+    background:linear-gradient(
+        135deg,
+        #1565ff,
+        #4f8cff
+    );
+    color:white !important;
+    padding:12px 24px;
+    border-radius:50px;
+    box-shadow:0 10px 25px rgba(21,101,255,.25);
+}
+
+/* Hero */
+
+.hero{
+    min-height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:0 8%;
+}
+
+.hero-content{
+    text-align:center;
+    max-width:900px;
+}
+
+.hero-content span{
+    display:inline-block;
+    background:#eef5ff;
+    color:#1565ff;
+    padding:10px 20px;
+    border-radius:30px;
+    font-size:.9rem;
+    font-weight:600;
+    margin-bottom:25px;
+}
+
+.hero-content h1{
+    font-size:4.5rem;
+    font-weight:800;
+    line-height:1.1;
+    color:#1f2937;
+    margin-bottom:25px;
+}
+
+.hero-content h1 .blue{
+    color:#1565ff;
+}
+
+.hero-content p{
+    max-width:700px;
+    margin:auto;
+    color:#6b7280;
+    font-size:1.15rem;
+    line-height:1.8;
+}
+
+.hero-buttons{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+/* Buttons */
+
+.primary-btn{
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(
+        135deg,
+        #1565ff,
+        #4f8cff
+    );
+    padding:16px 34px;
+    border-radius:50px;
+    font-weight:600;
+    box-shadow:0 15px 30px rgba(21,101,255,.25);
+    transition:.3s;
+}
+
+.primary-btn:hover{
+    transform:translateY(-5px);
+}
+
+.secondary-btn{
+    text-decoration:none;
+    color:#1565ff;
+    background:white;
+    padding:16px 34px;
+    border-radius:50px;
+    border:1px solid #dbe7ff;
+    font-weight:600;
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+    transition:.3s;
+}
+
+.secondary-btn:hover{
+    transform:translateY(-5px);
+}
+
+/* Floating Cards */
+
+.features{
+    padding:80px 8%;
+}
+
+.feature-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.feature-card{
+    background:rgba(255,255,255,.8);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.5);
+    border-radius:25px;
+    padding:35px;
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.06);
+    transition:.4s;
+}
+
+.feature-card:hover{
+    transform:translateY(-12px);
+    box-shadow:
+        0 25px 50px rgba(21,101,255,.15);
+}
+
+.feature-card h3{
+    color:#1565ff;
+    margin-bottom:15px;
+    font-size:1.3rem;
+}
+
+.feature-card p{
+    color:#6b7280;
+    line-height:1.8;
+}
+
+/* Section Title */
+
+.features h2{
+    text-align:center;
+    font-size:2.8rem;
+    margin-bottom:60px;
+    color:#1f2937;
+}
+
+.features h2 span{
+    color:#1565ff;
+}
+
+/* Footer */
+
+footer{
+    margin-top:80px;
+    text-align:center;
+    padding:30px;
+    color:#6b7280;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .hero-content h1{
+        font-size:2.8rem;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    nav{
+        gap:10px;
+    }
+
+    .register-btn{
+        padding:10px 18px;
+    }
+}

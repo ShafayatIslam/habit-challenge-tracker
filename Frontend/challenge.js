@@ -2,7 +2,7 @@ const base_url = "http://localhost:8080";
 const challenge_url = base_url + "/api/challenge";
 const user_url = base_url + "/users/details";
 
-const userId = 18;
+const userId = 19;
 
 const allChallengeSection = document.getElementById("view-allChallenges");
 const challengeContainer = document.querySelector(".challenge-container");

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - Habit Challenge</title>
+    <link rel="stylesheet" href="leaderboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-trophy icon-purple"></i>
+            <span>Habit Challenge</span>
+        </div>
+        
+        <div class="nav-links">
+            <a href="#"><i class="fa-solid fa-border-all"></i> Dashboard</a>
+            <a href="habits.html"><i class="fa-regular fa-square-check"></i> Habits</a>
+            <a href="challenge.html"><i class="fa-solid fa-medal"></i> Challenges</a>
+            <a href="leaderboard.html" class="active"><i class="fa-solid fa-chart-simple"></i> Leaderboard</a>
+            <a href="#"><i class="fa-regular fa-calendar"></i> Calendar</a>
+            <a href="#"><i class="fa-regular fa-user"></i> Profile</a>
+            <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+        </div>
+        
+        <div class="nav-logout">
+            <a href="Home.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        
+        <header class="page-header">
+            <div>
+                <h1>Leaderboard</h1>
+                <p class="text-muted">See how you rank against others</p>
+            </div>
+        </header>
+
+        <div class="podium-container">
+
+        </div>
+
+        <div class="table-container">
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th style="text-align: left;">Rank</th>
+                        <th style="text-align: left;">Username</th>
+                        <th style="text-align: left;">Full Name</th>
+                        <th style="text-align: center;">Points</th>
+                        <th style="text-align: center;">Challenges</th>
+                        <th style="text-align: center;">Habits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- LOADING OVERLAY -->
+        <div id="loading-overlay" class="hidden">
+            <div class="loading-box">
+                <div class="circle-loader"></div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="leaderboard.js"></script>
+</body>
+</html>
