@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Habit Challenge</title>
+    <link rel="stylesheet" href="/css/dashboard.css" />
+</head>
+<body>
+<div class="app-shell">
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-icon">🏆</div>
+            <div>
+                <span class="brand-name">Habit Challenge</span>
+            </div>
+        </div>
+        <nav class="topnav">
+            <a class="active" href="/dashboard">Dashboard</a>
+            <a href="#habits">Habits</a>
+            <a href="#tasks">Tasks</a>
+            <a href="#challenges">Challenges</a>
+            <a href="#leaderboard">Leaderboard</a>
+            <a href="#calendar">Calendar</a>
+            <a href="#profile">Profile</a>
+            <a href="#settings">Settings</a>
+        </nav>
+        <button class="logout-btn">Logout</button>
+    </header>
+
+    <main class="page-content">
+        <section class="page-header">
+            <div>
+                <p class="eyebrow">Dashboard</p>
+                <h1>Welcome back! Here’s your overview.</h1>
+            </div>
+        </section>
+
+        <section class="summary-grid">
+<!--            <article class="summary-card">-->
+<!--                <span class="summary-label">Current Streak</span>-->
+<!--                <strong>12 days</strong>-->
+<!--                <span class="summary-icon">🔥</span>-->
+<!--            </article>-->
+            <article class="summary-card">
+                <span class="summary-label">Rating</span>
+                <strong>2,450</strong>
+                <span class="summary-icon">⭐</span>
+            </article>
+            <article class="summary-card">
+                <span class="summary-label">Active Habits</span>
+                <strong th:text="${habitCount}">8</strong>
+                <span class="summary-icon">✅</span>
+            </article>
+            <article class="summary-card">
+                <span class="summary-label">Challenges</span>
+                <strong th:text="${challengeCount}">3</strong>
+                <span class="summary-icon">🏆</span>
+            </article>
+        </section>
+
+        <section class="content-grid">
+            <article class="panel" id="habits">
+
+                <div class="panel-header">
+                    <h2>Active Habits</h2>
+                    <a th:href="@{/habits}">View all</a>
+                </div>
+
+                <!-- Completed -->
+                <h3 class="habit-section-title">Completed</h3>
+
+                <div class="item-list">
+                    <div th:each="habit : ${completedHabits}"
+                         class="item done">
+
+                        <span class="item-icon">✔️</span>
+
+                        <div>
+                            <p class="item-title done-text"
+                               th:text="${habit.name}">
+                                Habit Name
+                            </p>
+
+                            <p class="item-meta">
+                                <span th:text="${habit.streak}"></span> day streak
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pending -->
+                <h3 class="habit-section-title">Pending</h3>
+
+                <div class="item-list">
+                    <div th:each="habit : ${pendingHabits}"
+                         class="item">
+
+                        <span class="item-icon blocked">■</span>
+
+                        <div>
+                            <p class="item-title"
+                               th:text="${habit.name}">
+                                Habit Name
+                            </p>
+
+                            <p class="item-meta">
+                                <span th:text="${habit.streak}"></span> day streak
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+        </section>
+
+        <section class="panel wide-panel" id="challenges">
+            <div class="panel-header">
+                <h2>Ongoing Challenges</h2>
+                <a th:href="@{/challenges}">View all</a>
+            </div>
+
+            <div class="challenge-grid">
+                <div class="challenge-card"
+                     th:each="challenge, stat : ${challenges}"
+                     th:if="${stat.index < 3}">
+
+                    <div class="challenge-title">
+                        <span class="challenge-icon">🏆</span>
+
+                        <div>
+                            <strong th:text="${challenge.challengeName}">
+                                Challenge Name
+                            </strong>
+
+                            <p>
+                                Created by
+                                <span th:text="${challenge.userId}">User</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="challenge-progress">
+                        <span>Duration</span>
+                        <strong th:text="${challenge.durationDays + ' days'}">
+                            30 days
+                        </strong>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div th:style="'width:' + ${challenge.progressPercentage} + '%'"></div>
+                    </div>
+
+                    <small th:text="${challenge.progressPercentage + '% completed'}">
+                        40% completed
+                    </small>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+</body>
+</html>

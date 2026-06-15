@@ -5,6 +5,7 @@ import com.project.habit_management.dto.HabitResponse;
 import com.project.habit_management.model.Habit;
 import com.project.habit_management.repository.HabitRepo;
 import com.project.habit_management.repository.UserRepo;
+import org.jspecify.annotations.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -15,11 +16,16 @@ import java.util.List;
 
 @Service
 public class HabitService {
+    private final HabitRepo repository;
     @Autowired
     private HabitRepo habitRepo;
 
     @Autowired
     private UserRepo userRepo;
+
+    public HabitService(HabitRepo repository) {
+        this.repository = repository;
+    }
 
     public List<HabitResponse> getAllHabits(){
         return habitRepo.findAll().stream().map(HabitResponse::fromEntity).toList();

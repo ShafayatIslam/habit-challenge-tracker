@@ -6,6 +6,7 @@ import com.project.habit_management.model.ChallengeType;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 @Data
 public class ChallengeResponse {
@@ -35,5 +36,27 @@ public class ChallengeResponse {
         response.endDate = challenge.getEndDate();
 
         return response;
+    }
+
+    public int getProgressPercentage() {
+
+        if (creationDate == null || endDate == null) {
+            return 0;
+        }
+
+        long totalDays = ChronoUnit.DAYS.between(
+                creationDate,
+                endDate
+        );
+
+        long passedDays = ChronoUnit.DAYS.between(
+                creationDate,
+                LocalDate.now()
+        );
+
+        if (passedDays < 0) return 0;
+        if (passedDays > totalDays) return 100;
+
+        return (int) ((passedDays * 100.0) / totalDays);
     }
 }

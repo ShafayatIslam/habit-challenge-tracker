@@ -1,5 +1,6 @@
 package com.project.habit_management.model;
 
+import com.project.habit_management.dto.HabitResponse;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

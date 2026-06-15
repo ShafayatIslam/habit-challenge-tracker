@@ -9,6 +9,7 @@ import com.project.habit_management.repository.ChallengeSecurityRepo;
 import com.project.habit_management.repository.UserChallengeRepo;
 import com.project.habit_management.repository.UserRepo;
 import lombok.Data;
+import org.jspecify.annotations.Nullable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -120,4 +121,7 @@ public class ChallengeService {
         ChallengeSecurity security = securityRepo.findByUniqueId(request.getUniqueId());
         return security != null && passwordEncoder.matches(request.getPin(), security.getPin());
     }
+
+//    public @Nullable Object getActiveChallenges() {
+//    }
 }

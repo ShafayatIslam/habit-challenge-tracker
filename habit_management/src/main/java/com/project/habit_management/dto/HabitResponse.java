@@ -1,6 +1,7 @@
 package com.project.habit_management.dto;
 
 import com.project.habit_management.model.Habit;
+import jakarta.persistence.Column;
 import lombok.Data;
 
 @Data
@@ -14,6 +15,9 @@ public class HabitResponse {
     private String lastCompleted;
     private Integer userId;
     private String username;
+
+    @Column(nullable = false)
+    private boolean completed;
 
     private HabitResponse(){}
 
