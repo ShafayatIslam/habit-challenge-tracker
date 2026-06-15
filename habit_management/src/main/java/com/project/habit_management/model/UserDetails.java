@@ -36,6 +36,4 @@ public class UserDetails {
 
     @Column(columnDefinition = "TEXT")
     private String bio;
-
-    private Double rating;
 }
