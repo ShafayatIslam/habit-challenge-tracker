@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Habit Tracker Login</title>
+    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </head>
+  <body style="background: #f8fafc;">
+    <div class="page-shell" style="max-width: 480px; padding-top: 80px; color: #111;">
+      <div class="panel" style="padding: 36px; background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 28px 80px rgba(15, 23, 42, 0.08); color: #111;">
+        <h2>Welcome back</h2>
+        <p style="color: #475569; margin-bottom: 30px;">Sign in to continue tracking your habits, challenges, streaks, and reminders.</p>
+        <form>
+          <label style="display: block; margin-bottom: 14px; color: #475569; font-size: 0.95rem;">Username</label>
+          <input type="text" placeholder="Enter your username" required style="width: 100%; padding: 14px 16px; border-radius: 14px; border: 1px solid #cbd5e1; background: #f8fafc; color: #0f172a; margin-bottom: 18px;" />
+          <label style="display: block; margin-bottom: 14px; color: #475569; font-size: 0.95rem;">Password</label>
+          <input type="password" placeholder="Enter your password" required style="width: 100%; padding: 14px 16px; border-radius: 14px; border: 1px solid #cbd5e1; background: #f8fafc; color: #0f172a; margin-bottom: 24px;" />
+          <button class="button primary" type="submit" style="width: 100%;">Log in</button>
+        </form>
+        <p class="footer-notes" style="margin-top: 24px; text-align: center;">
+          Don't have an account? <a href="Registration.html" style="color: var(--primary);">Register here</a>
+        </p>
+      </div>
+
+      <!-- LOADING OVERLAY -->
+      <div id="loading-overlay" class="hidden">
+          <div class="loading-box">
+              <div class="circle-loader"></div>
+          </div>
+      </div>
+
+      <!-- POPUP -->
+      <div id="overlay" class="hidden">
+          <div id="error-alert" class="hidden">
+              <div class="popup-msg">
+              <i class="fa-solid fa-circle-xmark"></i>
+              <p></p>
+              </div>
+              <button id="try-btn" class="popup-btn">Try again</button>
+          </div>
+      </div>
+    </div>
+    <script src="login.js"></script>
+  </body>
+</html>

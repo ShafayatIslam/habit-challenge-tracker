@@ -384,3 +384,81 @@ label.terms a:hover {
     grid-template-columns: 1fr; 
   } 
 } 
+
+
+/* Buffer Loader */
+.circle-loader{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    position: relative;
+
+    /* HIGH CONTRAST COLOR */
+    border: 6px solid rgba(15, 23, 42, 0.08);
+    border-top: 6px solid #111827; /* strong dark color */
+
+    animation: spinnerRotate 0.85s linear infinite;
+
+    box-shadow:
+        0 0 18px rgba(17, 24, 39, 0.25),
+        0 0 40px rgba(17, 24, 39, 0.12);
+}
+
+/* Inner glow */
+.circle-loader::before{
+    content: "";
+    position: absolute;
+    inset: 14px;
+
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(17, 24, 39, 0.35) 0%,
+        rgba(17, 24, 39, 0.12) 45%,
+        transparent 70%
+    );
+
+    animation: pulseGlow 1.4s ease-in-out infinite;
+}
+
+/* Outer pulse ring */
+.circle-loader::after{
+    content: "";
+    position: absolute;
+    inset: -12px;
+
+    border-radius: 50%;
+    border: 2px solid rgba(17, 24, 39, 0.22);
+
+    animation: pulseRing 1.6s ease-out infinite;
+}
+
+/* Rotation */
+@keyframes spinnerRotate{
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Glow animation */
+@keyframes pulseGlow{
+    0%, 100%{
+        transform: scale(0.9);
+        opacity: 0.5;
+    }
+    50%{
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+/* Expanding ring */
+@keyframes pulseRing{
+    0%{
+        transform: scale(0.8);
+        opacity: 1;
+    }
+    100%{
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}

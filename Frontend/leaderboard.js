@@ -7,8 +7,8 @@ const podium_container = document.querySelector(".podium-container");
 const table_container = document.querySelector(".table-container tbody");
 const loadingOverlay = document.getElementById("loading-overlay");
 
-const userId = 19;
-
+const userId = localStorage.getItem("userId");
+console.log(userId);
 loadLeaderboard();
 
 async function loadLeaderboard(){
@@ -86,7 +86,7 @@ function createPodiumCard(rank, user){
         <div class="podium-rank">3</div>
         <div class="podium-name">${user.fullName}</div>
         <div class="podium-score">${user.point}</div>
-        <div class="podium-label">rating</div>
+        <div class="podium-label">points</div>
         `;
     }
 
@@ -101,7 +101,7 @@ function createTableRow(rank, user, totalChallenges, totalHabits){
     if(rank < 4){
         table_row.innerHTML = `
         <td class="rank-text-purple">#${rank}</td>
-        <td>${user.username} ${user.userId === userId ? '<span class="badge-you">You</span>' : ''}</td>
+        <td>${user.username} ${user.userId == userId ? '<span class="badge-you">You</span>' : ''}</td>
         <td>${user.fullName}</td>
         <td class="text-center" style="font-weight: 700;">${user.point}</td>
         <td class="text-center text-muted">${totalChallenges}</td>
@@ -110,7 +110,7 @@ function createTableRow(rank, user, totalChallenges, totalHabits){
     }else{
         table_row.innerHTML = `
         <td>#${rank}</td>
-        <td>${user.username} ${user.userId === userId ? '<span class="badge-you">You</span>' : ''}</td>
+        <td>${user.username} ${user.userId == userId ? '<span class="badge-you">You</span>' : ''}</td>
         <td>${user.fullName}</td>
         <td class="text-center" style="font-weight: 700;">${user.point}</td>
         <td class="text-center text-muted">${totalChallenges}</td>

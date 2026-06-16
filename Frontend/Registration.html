@@ -17,7 +17,7 @@
         </div> 
  
         <div class="header-second"> 
-          <p>Already have an account? <a href="#">Sign in</a></p> 
+          <p>Already have an account? <a href="Login.html">Sign in</a></p> 
         </div> 
  
       </header> 
@@ -100,32 +100,30 @@
     </form> 
   </div> 
 
-  <div id="overlay" class="hidden">
-    <div id="password-confirmation" class="hidden">
-      <div class="popup-msg">
-        <i class="fa-solid fa-circle-exclamation"></i>
-        <p>Passwords do not match!</p>
+  <!-- LOADING OVERLAY -->
+  <div id="loading-overlay" class="overlay hidden">
+      <div class="loading-box">
+          <div class="circle-loader"></div>
       </div>
-      <button id="ok-btn" class="popup-btn">Ok</button>
-    </div>
-    <div id="error-alert" class="hidden">
-      <div class="popup-msg">
-        <i class="fa-solid fa-circle-xmark"></i>
-        <p>Something went wrong</p>
-      </div>
-      <button id="try-btn" class="popup-btn">Try again</button>
-    </div>
-    <div id="reg-success" class="hidden">
-      <div class="popup-msg">
-        <i class="fa-solid fa-circle-check"></i>
-        <p>Your account created successfully.</p>
-      </div>
-      <div class="btn-group">
-        <button id="cancel-btn" class="popup-btn">Cancel</button>
-        <button id="go-login-page" class="popup-btn">Go to login page</button>
-      </div>
-    </div>
   </div>
+
+  <!-- POPUP -->
+  <div id="overlay" class="hidden">
+      <div id="positive-response" class="hidden">
+          <div class="popup-msg">
+              <i class="fa-solid fa-circle-check" style="color: rgb(19, 168, 19);"></i>
+              <p></p>
+          </div>
+          <button id="ok-btn" class="popup-btn">Ok</button>
+      </div>
+      <div id="error-alert" class="hidden">
+          <div class="popup-msg">
+          <i class="fa-solid fa-circle-xmark"></i>
+          <p></p>
+          </div>
+          <button id="try-btn" class="popup-btn">Try again</button>
+      </div>
+  </div>  
 
   <script src="Registration.js"></script>
 </body>

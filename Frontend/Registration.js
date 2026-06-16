@@ -11,6 +11,8 @@ const strengthText = document.getElementById("strength-text");
 const strength_bars = password_strength.querySelectorAll("span");
 const strength_text = document.getElementById("strength-text");
 
+const loadingOverlay = document.getElementById("loading-overlay");
+
 passwordInput.addEventListener("input", ()=>{
     const password = passwordInput.value.trim();
     console.log(password);
@@ -69,16 +71,8 @@ form.addEventListener("submit", async (e)=>{
     console.log("password: ",password," confirm password: ",confirmPassword);
 
     if(password !== confirmPassword){
-        let overlay = document.getElementById('overlay');
-        let popup = document.getElementById('password-confirmation');
-        overlay.classList.replace("hidden", "overlay");
-        popup.classList.replace("hidden", "popup");
-
-        let button = popup.querySelector("button");
-        button.addEventListener("click", () => {
-            overlay.classList.replace("overlay", "hidden");
-            popup.classList.replace("popup", "hidden");
-        });
+        showPopup("error-alert", "Passwords do not match!");
+        return;
     }
 
     const userData = {
@@ -91,7 +85,7 @@ form.addEventListener("submit", async (e)=>{
         password: password
     }
 
-    console.log(userData);
+    showLoading();
 
     const response = await fetch(url, {
         method: "POST",
@@ -102,40 +96,49 @@ form.addEventListener("submit", async (e)=>{
     });
 
     if(!response.ok){
-        const error = await response.json();
-        
-        let overlay = document.getElementById('overlay');
-        let popup = document.getElementById('error-alert');
-        overlay.classList.replace("hidden", "overlay");
-        popup.classList.replace("hidden", "popup");
-
-        if(error.status === 111){
-            popup.querySelector("p").textContent = error.message;
-        }
-
-        let button = popup.querySelector("button");
-        button.addEventListener("click", () => {
-            overlay.classList.replace("overlay", "hidden");
-            popup.classList.replace("popup", "hidden");
-        });
-
+        const error = await response.json(); 
+        showPopup("error-alert", error.message);
+        hideLoading();
         return;
     }
 
-    let overlay = document.getElementById('overlay');
-    let popup = document.getElementById('reg-success');
+    hideLoading();
+
+    let overlay = document.getElementById("overlay");
+    let popup = document.getElementById("positive-response");
     overlay.classList.replace("hidden", "overlay");
     popup.classList.replace("hidden", "popup");
+    let message = popup.querySelector("p");
+    message.textContent = "Your account created successfully.";
+    let button = popup.querySelector("button");
+            
+    button.addEventListener("click", () => {
+        overlay.classList.replace("overlay", "hidden");
+        popup.classList.replace("popup", "hidden");
+        window.location.href = "Login.html";
+    });
+    
+});
 
-    let cancel_btn = document.getElementById('cancel-btn');
-    let go_to_login_btn = document.getElementById('go-to-login-page');
-
-    cancel_btn.addEventListener("click", () => {
+function showPopup(popupId, popupMsg){
+    let overlay = document.getElementById("overlay");
+    let popup = document.getElementById(popupId);
+    overlay.classList.replace("hidden", "overlay");
+    popup.classList.replace("hidden", "popup");
+    let message = popup.querySelector("p");
+    message.textContent = popupMsg;
+    let button = popup.querySelector("button");
+            
+    button.addEventListener("click", () => {
         overlay.classList.replace("overlay", "hidden");
         popup.classList.replace("popup", "hidden");
     });
+}
 
-    go_to_login_btn.addEventListener("click", () => {
-        window.location.href = "";
-    });
-});
+
+function showLoading() {
+    loadingOverlay.classList.replace("hidden", "overlay");
+}
+function hideLoading() {
+    loadingOverlay.classList.add("overlay", "hidden");
+}

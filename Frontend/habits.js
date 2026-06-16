@@ -1,7 +1,6 @@
 const url = "http://localhost:8080/habits";
 
-// const userId = localStorage.getItem("id");
-const userId = 19;
+const userId = localStorage.getItem("userId");
 
 let habitsArray = [];
 
