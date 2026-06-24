@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="leaderboard.css">
+</head>
+<body>
+    <nav class="navbar">
+    <div class="nav-brand">
+      <span class="brand-icon">🏆</span>
+      <span class="brand-name">Habit Challenge</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#" class="nav-link"><span class="nav-icon">⊞</span> Dashboard</a></li>
+      <li><a href="#" class="nav-link"><span class="nav-icon">✓</span> Habits</a></li>
+      <li><a href="#" class="nav-link"><span class="nav-icon">🏅</span> Challenges</a></li>
+      <li><a href="#" class="nav-link active"><span class="nav-icon">👤</span> Leaderboard</a></li>
+      <li><a href="#" class="nav-link"><span class="nav-icon">📅</span> Calendar</a></li>
+      <li><a href="#" class="nav-link"><span class="nav-icon">👤</span> Profile</a></li>
+      <li><a href="#" class="nav-link"><span class="nav-icon">⚙</span> Settings</a></li>
+    </ul>
+    <a href="#" class="logout-btn">→ Logout</a>
+  </nav>
+
+  <main class="main-content">
+    <div class="page-header">
+      <h1 class="page-title">Leaderboard</h1>
+      <p class="page-subtitle">See how you rank against others</p>
+    </div>
+ 
+    <div class="period-tabs">
+      <button class="tab-btn active" data-period="weekly">Weekly</button>
+      <button class="tab-btn" data-period="monthly">Monthly</button>
+      <button class="tab-btn" data-period="alltime">All Time</button>
+    </div>
+ 
+    <div class="podium-section">
+
+      <div class="podium-card silver" id="podium-2">
+        <div class="podium-medal silver-medal">🥈</div>
+        <div class="podium-rank">2</div>
+        <div class="podium-name" id="p2-name">Mike Chen</div>
+        <div class="podium-rating"><span id="p2-rating">2720</span></div>
+        <div class="podium-label">rating</div>
+      </div>
+ 
+      <div class="podium-card gold" id="podium-1">
+        <div class="podium-medal gold-medal">👑</div>
+        <div class="podium-rank gold-rank">1</div>
+        <div class="podium-name" id="p1-name">Sarah Johnson</div>
+        <div class="podium-rating"><span id="p1-rating">2850</span></div>
+        <div class="podium-label">rating</div>
+      </div>
+ 
+      <div class="podium-card bronze" id="podium-3">
+        <div class="podium-medal bronze-medal">🏆</div>
+        <div class="podium-rank bronze-rank">3</div>
+        <div class="podium-name" id="p3-name">Emma Davis</div>
+        <div class="podium-rating"><span id="p3-rating">2680</span></div>
+        <div class="podium-label">rating</div>
+      </div>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="leaderboard-table">
+        <thead>
+          <tr>
+            <th>RANK</th>
+            <th>USERNAME</th>
+            <th>RATING</th>
+            <th>STREAK</th>
+            <th>HABITS</th>
+            <th>CHANGE</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboard-body">
+   
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pagination" id="pagination">
+   
+    </div>
+  </main>
+ 
+  <script src="leaderboard.js"></script>
+    
+</body>
+</html>
