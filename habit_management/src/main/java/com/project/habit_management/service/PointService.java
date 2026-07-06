@@ -6,6 +6,7 @@ import com.project.habit_management.model.Point;
 import com.project.habit_management.model.User;
 import com.project.habit_management.repository.PointRepo;
 import com.project.habit_management.repository.UserRepo;
+import org.jspecify.annotations.Nullable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -39,5 +40,9 @@ public class PointService {
 
     public List<LeaderBoardResponse> getLeaderBoardUsers(){
         return pointRepo.getLeaderBoardUsers();
+    }
+
+    public Point getUserPoint(Integer userId){
+        return pointRepo.findByUserId(userId);
     }
 }
