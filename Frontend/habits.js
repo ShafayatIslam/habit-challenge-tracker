@@ -14,6 +14,13 @@ async function loadHabits(){
         const response = await fetch(`${url}/${userId}`);
         habitsArray = await response.json();
 
+        if(habitsArray.length === 0){
+            document.getElementById("habit-empty-state").classList.remove("hidden");
+            hideLoading();
+            return;
+        }else
+            document.getElementById("habit-empty-state").classList.add("hidden");
+        
         hideLoading();
         renderHabits();
     }catch(e){

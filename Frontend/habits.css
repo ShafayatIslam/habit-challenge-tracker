@@ -493,6 +493,23 @@ button {
     margin-left: 6px;
 }
 
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 72px 20px;
+}
+
+.empty-state i {
+    font-size: 4.75rem;
+    color: #D1D5DB;
+    margin-bottom: 18px;
+}
+
+.empty-state h3 {
+    font-size: 1.75rem;
+    margin-bottom: 10px;
+}
+
 
 /* Buffer Loader */
 .circle-loader{
