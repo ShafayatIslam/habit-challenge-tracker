@@ -196,7 +196,7 @@ async function loadChallengeDetails(challengeId){
         if(challengeDetails.endDate >= today){
             status = "Active";
         }else status = "Ended";
-
+       
         detailsContainer.innerHTML = "";
         const detailsLayout = createDetailsLayout(challengeDetails, totalParticipants, status, canJoin, owner);
         detailsContainer.appendChild(detailsLayout);
@@ -277,7 +277,7 @@ function createChallengeCard(challenge, totalParticipants, status){
     <div class="card-meta">
         <span><i class="fa-solid fa-user-group text-muted"></i> ${totalParticipants}</span>
         <span>${challenge.durationDays} days</span>
-        <span class="badge-active">${status}</span>
+        <span class="${status == "Active"? 'badge-active' : 'badge-inactive'}">${status}</span>
     </div>
             
     <div class="creation-date">
@@ -301,7 +301,7 @@ function createDetailsLayout(challengeDetails, totalParticipants, status, canJoi
                         <p class="creator-text">Created by ${challengeDetails.userId == userId ? 'you' : owner.fullName}</p>
                     </div>
                 </div>
-                <span class="badge-active">${status}</span>
+                <span class="${status == "Active"? 'badge-active' : 'badge-inactive'}">${status}</span>
             </div>
             
             <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px;"><i class="fa-solid fa-hashtag"></i> ${challengeDetails.description}</p>

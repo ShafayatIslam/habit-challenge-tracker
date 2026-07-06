@@ -1,6 +1,6 @@
 const base_url = "http://localhost:8080";
 const login_url = base_url + "/users/login";
-const dashboard = "localhost:8080/dashboard";
+const dashboard = base_url + "/dashboard";
 
 const login_form = document.querySelector("form");
 const loadingOverlay = document.getElementById("loading-overlay");
@@ -29,7 +29,8 @@ login_form.addEventListener("submit", async (e) => {
         
         if(user.id != null){
             localStorage.setItem("userId", user.id);
-            window.location.href = "http://localhost:8080/dashboard";
+            //window.location.href = `http://localhost:8080/dashboard?userId=${user.id}`;
+            window.location.href = "dashboard.html";
         }else{
             showPopup("error-alert", "Invalid username or password.");
             return;
