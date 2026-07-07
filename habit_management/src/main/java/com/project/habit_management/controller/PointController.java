@@ -3,7 +3,6 @@ package com.project.habit_management.controller;
 import com.project.habit_management.dto.LeaderBoardResponse;
 import com.project.habit_management.service.PointService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,5 +22,10 @@ public class PointController {
     @GetMapping("/point/leaderboard")
     public ResponseEntity<List<LeaderBoardResponse>> getLeaderBoardUsers(){
         return ResponseEntity.status(HttpStatus.OK).body(pointService.getLeaderBoardUsers());
+    }
+
+    @GetMapping("/point/user/{userId}")
+    public ResponseEntity<Integer> getUserPoints(@PathVariable Integer userId){
+        return ResponseEntity.status(HttpStatus.OK).body(pointService.getUserPoint(userId));
     }
 }
