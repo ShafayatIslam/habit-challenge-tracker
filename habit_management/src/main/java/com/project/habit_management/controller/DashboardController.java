@@ -45,7 +45,7 @@ public class DashboardController {
         model.addAttribute("challengeCount", userChallengeService.getAllUserChallenges(userId).size());
         model.addAttribute("habits", habitService.getUserHabits(userId));
         model.addAttribute("challenges", userChallengeService.getAllUserChallenges(userId));
-        model.addAttribute("points", pointService.getUserPoint(userId).getPoints());
+
         return "dashboard/dashboard";
     }
 

@@ -42,7 +42,7 @@ public class PointService {
         return pointRepo.getLeaderBoardUsers();
     }
 
-    public Point getUserPoint(Integer userId){
-        return pointRepo.findByUserId(userId);
+    public Integer getUserPoint(Integer userId){
+        return pointRepo.findByUserId(userId).getPoints();
     }
 }
